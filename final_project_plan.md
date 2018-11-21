@@ -14,7 +14,7 @@ Key to understanding the overall problem is the double-edged sword forests play 
 However, this will not work if the forests continue in the same destructive cycle with our ecosystem. The goal of this project is two-fold. One, to understand the independent variables and correlation effects in a combined dataset of the Fire Program Analysis (FPA) reporting system, NOAA's Global Surface Summary of Day Data (GSOD) 7, and  NASA's biomass indicators. Two, to train and assess a model for predicting the reason a wildfire started. (and possibly impact? location?) Identifying the source of is a difficult task for investigators in the wild. The vastness of land covered is much larger than the matchstick or location of a lightning strike. Developing an understanding of the independent variables could give authorities valuable direction as to where to begin their search. 
 
 ## Data
-Three data sources are to be used for this project. The primary data source was found through Kaggle and contains 1.88 million wildfires that occurred in the United States from 1992 to 2015. This  data contains the primary labels to be used as target variables. The United States Department of Agriculture curated the original data ([Forest Service](https://www.fs.fed.us/)) and can be found at [link](https://www.fs.usda.gov/rds/archive/Product/RDS-2013-0009.4/). The second is the GSOD data curated by [NOAA](https://www.noaa.gov/). Finally, the National Air and Space Association hosts a valuable biome dataset at the ORNL Distributed Active Archive Center for Biogeochemical Dynamics ([DAAC](https://daac.ornl.gov/NPP/guides/NPP_EMDI.html)). This information will give valuable information to make inferences in regards to my research questions.
+Three data sources are to be used for this project. The primary data source was found through Kaggle and contains 1.88 million wildfires that occurred in the United States from 1992 to 2015. This data contains the primary labels to be used as target variables. The United States Department of Agriculture curated the original data ([Forest Service](https://www.fs.fed.us/)) and can be found at [link](https://www.fs.usda.gov/rds/archive/Product/RDS-2013-0009.4/). The second is the GSOD data curated by [NOAA](https://www.noaa.gov/). Finally, the National Air and Space Association hosts a valuable biome dataset at the ORNL Distributed Active Archive Center for Biogeochemical Dynamics ([DAAC](https://daac.ornl.gov/NPP/guides/NPP_EMDI.html)). This information will give valuable information to make inferences in regards to my research questions.
 
 ### USDA Forest Service
 Detailed metadata for the dataset is being hosted at - [Spatial wildfire occurrence data for the United States, 1992-2015](https://www.fs.usda.gov/rds/archive/products/RDS-2013-0009.4/_metadata_RDS-2013-0009.4.html). The following table shows a data dictionary of the independent variables I will be using for the analysis and learning. This list does not constitute all variables in the original data set but the variables I pan to use in my work. Variable descriptions were pasted from the original defined in the [metadata](https://www.fs.usda.gov/rds/archive/products/RDS-2013-0009.4/_metadata_RDS-2013-0009.4.html)
@@ -24,12 +24,12 @@ Detailed metadata for the dataset is being hosted at - [Spatial wildfire occurre
 | FIRE_CODE        | str       | Code used within the interagency wildland fire community to track and compile cost information for emergency fire suppression (https://www.firecode.gov/).                                                                                                               |
 | FIRE_YEAR        | int       | Calendar year in which the fire was discovered or confirmed to exist.                                                                                                                                                                                                    |
 | DISCOVERY_DATE   | float     | Date on which the fire was discovered or confirmed to exist.                                                                                                                                                                                                             |
-| DISCOVERY_DOY    | int       | Day of year on which the fire was discovered or confirmed to exist.                                                                                                                                                                                                      |
+| DISCOVERY_DOY    | int       | Day of the year on which the fire was discovered or confirmed to exist.                                                                                                                                                                                                      |
 | DISCOVERY_TIME   | str       | Time of day that the fire was discovered or confirmed to exist.                                                                                                                                                                                                          |
 | STAT_CAUSE_CODE  | float     | Code for the (statistical) cause of the fire.                                                                                                                                                                                                                            |
 | STAT_CAUSE_DESCR | str       | Description of the (statistical) cause of the fire.                                                                                                                                                                                                                      |
 | CONT_DATE        | float     | Date on which the fire was declared contained or otherwise controlled (mm/dd/yyyy where mm=month, dd=day, and yyyy=year).                                                                                                                                                |
-| CONT_DOY         | int       | Day of year on which the fire was declared contained or otherwise controlled.                                                                                                                                                                                            |
+| CONT_DOY         | int       | Day of the year on which the fire was declared contained or otherwise controlled.                                                                                                                                                                                            |
 | CONT_TIME        | str       | Time of day that the fire was declared contained or otherwise controlled (hhmm where hh=hour, mm=minutes).                                                                                                                                                               |
 | FIRE_SIZE        | float     | Estimate of acres within the final perimeter of the fire.                                                                                                                                                                                                                |
 | FIRE_SIZE_CLASS  | str       | Code for fire size based on the number of acres within the final fire perimeter expenditures (A=greater than 0 but less than or equal to 0.25 acres, B=0.26-9.9 acres, C=10.0-99.9 acres, D=100-299 acres, E=300 to 999 acres, F=1000 to 4999 acres, and G=5000+ acres). |
@@ -46,7 +46,7 @@ Detailed metadata for the dataset is being hosted at - [Spatial wildfire occurre
 * Latitude and longitudes are not records in decimal-degree format and will require conversion.
 
 #### License
-> These data were collected using funding from the U.S. Government and can be used without additional permissions or fees. If you use these data in a publication, presentation, or other research product please use the following citation:
+> These data were collected using funding from the U.S. Government and can be used without additional permissions or fees. If you use these data in a publication, presentation, or other research product, please use the following citation:
 > Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
 
 ### NOAA GSOD
@@ -76,14 +76,14 @@ The data were gathered by the World Meteorologic Organization (WMO) World Weathe
 A limitation noted by NOAA is up to a 2-day delay in reporting weather aggregations although this does not affect the current project.
 
 #### License - IS THIS OKAY?
-NOAA and WMO provide the data for 'free and unrestricted use in research, education, and other non-commerical activites.'
+NOAA and WMO provide the data for 'free and unrestricted use in research, education, and other non-commerical activities.'
 > The data summaries provided here are based on data exchanged under the World Meteorological Organization (WMO) World Weather Watch Program according to WMO Resolution 40 (Cg-XII).  This allows WMO member countries to place restrictions on the use or re-export of their data for commercial purposes outside of the receiving country.  Data for selected countries may, at times, not be available through this system.   
 
-> Those countries' data summaries and products which are available here are intended for free and unrestricted use in research, education, and other non-commercial activities.  However, for non-U.S. locations' data, the data or any derived product shall not be provided to other users or be used for the re-export of commercial services.  To determine off-line availability of any country's data, please contact --ncdc.orders@noaa.gov,
+> Those countries' data summaries and products which are available here are intended for free and unrestricted use in research, education, and other non-commercial activities.  However, for non-U.S. locations' data, the data or any derived product shall not be provided to other users or be used for the re-export of commercial services.  To determine the off-line availability of any country's data, please contact --ncdc.orders@noaa.gov,
 828-271-4800.  Please email ncdc.info@noaa.gov if you have any other questions.
 
 ### ORNL DAAC
-This dataset contains a wealth of information for modeling. For this project I will be using two tables that give us vegetation and soil content for a given latitude and longitude.
+This dataset contains a wealth of information for modeling. For this project, I will be using two tables that give us vegetation and soil content for a given latitude and longitude.
 
 #### EMDI_ClassA_Soil_IGBP_81.csv
 | Variable Name | Data Type | Description                                          | Units           |
@@ -115,7 +115,7 @@ This dataset contains a wealth of information for modeling. For this project I w
 | WATER         | na        | Water                                                                             | 0                  |
 | NEEDLE_E      | na        | Evergreen needleleaf forests                                                      | 1                  |
 | BROAD_E       | na        | Evergreen broadleaf forests                                                       | 2                  |
-| NEEDLE_D      | na        | Deciduous needleleaf forests                                                      | 3                  |
+| NEEDLE_D      | na        | Deciduous needleaf forests                                                      | 3                  |
 | BROAD_D       | na        | Deciduous broadleaf forests                                                       | 4                  |
 | MIXED         | na        | Mixed forests                                                                     | 5                  |
 | WOODLAND      | na        | Woodlands                                                                         | 6                  |
@@ -153,7 +153,7 @@ I will start by splitting the dataset into two parts. The first part will contai
 ## References
 * Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
 
-* Gillett, N. P., & Weaver, A. J. (2004). Detecting the effect of climate change on Canadian forest fires. AGU100 Advancing Earth and Space Science, 31(18). Retrieved from https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020876
+* Gillett, N. P., & Weaver, A. J. (2004).Detecting the effect of climate change on Canadian forest fires. AGU100 Advancing Earth and Space Science, 31(18). Retrieved from https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020876
 
 * Forests and climate change. (2017, November 10). Retrieved November 21, 2018, from https://www.iucn.org/resources/issues-briefs/forests-and-climate-change
 
@@ -166,3 +166,6 @@ I will start by splitting the dataset into two parts. The first part will contai
 * NPP Multi-Biome: NPP and Driver Data for Ecosystem Model-data Intercomparison, R2. (n.d.). Retrieved November 21, 2018, from https://daac.ornl.gov/NPP/guides/NPP_EMDI.html
 
 * Olson, R.J., J.M.O. Scurlock, S.D. Prince, D.L. Zheng, and K.R. Johnson (eds.). 2013. NPP Multi-Biome: NPP and Driver Data for Ecosystem Model-Data Intercomparison, R2. Data set. Available on-line [http://daac.ornl.gov] from Oak Ridge National Laboratory Distributed Active Archive Center, Oak Ridge, Tennessee, USA. doi:10.3334/ORNLDAAC/615
+
+* 2010-01-30: Surface Summary of Day, GSOD - Datafedwiki. http://datafedwiki.wustl.edu/index.php/2010-01-30:_Surface_Summary_of_Day%2C_GSOD
+* About Us - ORNL DAAC. https://daac.ornl.gov/about/
