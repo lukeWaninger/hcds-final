@@ -1,23 +1,23 @@
-# Final Project Plan - Wildfire Cause Prediction and Analysis
+# Final Project Plan - Wildfire Source and (Location?) Prediction and Analysis
 Luke Waninger
 
 DATA 512 Human-Centered Data Science
 
-University of Washington, Fall 2018
+The University of Washington, Fall 2018
 
 
 ## Introduction
-Wildfires have been a big topic in the recent news with devasting effects across the western coast of the United State. So far this year, we've had less burn than 2017 but the current fire in California is the largest in state history and still burns rapidly. Last year, we had almost 2 billion dollars of losses across the United States as a result of wildfire damage; the most in history. The risks of wildfires continue to climb as scientists discover linkage between the two. N. P. Gillett et. al. performed a comprehensive study on various effects showing an positive trend in wildfire burn area is strongly correlated with a positive trend in temperature and greenhouse gasses during the fire season in British Columbia. 
+Wildfires have been a big topic in the recent news with devasting effects across the western coast of the United States. So far this year, we have had less burn than 2017, but the current fire in California is the largest in state history and still burns rapidly. Last year, we had almost 2 billion dollars of losses across the United States as a result of wildfire damage which has been the highest in history. Risks of wildfires continue to climb as scientists discover alarming links between rising greenhouse gasses, temperature, and wildfire severity. N. P. Gillett et al. performed a comprehensive study on the relationship between the two and concluded with overwhelming confidence that a positive trend exists between them. Rising greenhouse gasses could be playing a significant role in the prevalence and severity of forest fires.
 
-Key to understanding the overall problem is the double edged sword that forests play in climate change. They are both a cause and effect of climate change. The burns put an alarming amount of smoke in the air that both increase atmospheric greenhouse gasses and pollutes the air we breathe while the trees themselves play a vital role in the carbon cycle. The Paris Agreement has specifically mentioned the importance of this and insists that countries protect against deforestation. Not only is the world at large pushing to keep the forests we have but here at home we've began to employ them as major combatants in the fight against climate change. California has led the way with their proposed carbon plan. It proposes methods to reshape parts of their existing ecosystem to take make their forests even more efficient at removing carbon.
+Key to understanding the overall problem is the double-edged sword forests play in climate change; they are both a cause and effect. The wildfires both increase atmospheric greenhouse gasses and destroy the integral vegetation to the planet's carbon cycle. The Paris Agreement has specifically mentioned the importance of this and insists that countries protect against deforestation. Not only is the world pushing to keep the forests we have but here at home, we have begun to employ them as significant combatants in the fight against climate change. California has led the way with their proposed carbon plan. It proposes methods to reshape parts of their existing ecosystem to make their forests even more efficient at removing carbon. Stopping deforestation would significantly promote the UNs progress towards reaching goals outlined in the Paris Agreement.
 
-But this won't work if they keep burning. The goal of this project is two fold. One, to understand the independent variables and correlation effects in a combined dataset of the Fire Program Analysis (FPA) reporting system, NOAAs Global Surface Summary of Day Data (GSOD) 7, and  NASA's biomass indicators. And two, to train and assess a model for predicting the cause (and possibly impact?) of a wildfire. Identifying the source of a wildfire is a difficult task for investigators. Developing an understanding of the independent variables could help local authorities identify neighborhoods and other land areas with higher risk of fire danger. And, developing a prediction model could give valuable insights to direct causal investigations.
+However, this will not work if the forests continue in the same destructive cycle with our ecosystem. The goal of this project is two-fold. One, to understand the independent variables and correlation effects in a combined dataset of the Fire Program Analysis (FPA) reporting system, NOAA's Global Surface Summary of Day Data (GSOD) 7, and  NASA's biomass indicators. Two, to train and assess a model for predicting the reason a wildfire started. (and possibly impact? location?) Identifying the source of is a difficult task for investigators in the wild. The vastness of land covered is much larger than the matchstick or location of a lightning strike. Developing an understanding of the independent variables could give authorities valuable direction as to where to begin their search. 
 
 ## Data
-Three data sources will be used for this project. The main data source was found through Kaggle and contains 1.88 million wildfires that occured in the US. The original data was curated by United States Department of Agriculture ([Forest Service](https://www.fs.fed.us/)) and can be found at [link](https://www.fs.usda.gov/rds/archive/Product/RDS-2013-0009.4/). The second is the GSOD data curated by [NOAA](https://www.noaa.gov/). And finally, the National Air and Space Association hosts a dataset with valuable biome information at the ORNL Distributed Active Archive Center for Biogeochemical Dynamics ([DAAC](https://daac.ornl.gov/NPP/guides/NPP_EMDI.html)).
+Three data sources are to be used for this project. The primary data source was found through Kaggle and contains 1.88 million wildfires that occurred in the United States from 1992 to 2015. This  data contains the primary labels to be used as target variables. The United States Department of Agriculture curated the original data ([Forest Service](https://www.fs.fed.us/)) and can be found at [link](https://www.fs.usda.gov/rds/archive/Product/RDS-2013-0009.4/). The second is the GSOD data curated by [NOAA](https://www.noaa.gov/). Finally, the National Air and Space Association hosts a valuable biome dataset at the ORNL Distributed Active Archive Center for Biogeochemical Dynamics ([DAAC](https://daac.ornl.gov/NPP/guides/NPP_EMDI.html)). This information will give valuable information to make inferences in regards to my research questions.
 
 ### USDA Forest Service
-Detailed metadata for the dataset can be found at - [Spatial wildfire occurrence data for the United States, 1992-2015](https://www.fs.usda.gov/rds/archive/products/RDS-2013-0009.4/_metadata_RDS-2013-0009.4.html). The following table shows a data dictionary of the independent variables I will be using for the analysis and learning. This list does not consitute all variables in the original dataset but the variables I will be using. The descriptions were pasted from the original defined in the [metadata](https://www.fs.usda.gov/rds/archive/products/RDS-2013-0009.4/_metadata_RDS-2013-0009.4.html)
+Detailed metadata for the dataset is being hosted at - [Spatial wildfire occurrence data for the United States, 1992-2015](https://www.fs.usda.gov/rds/archive/products/RDS-2013-0009.4/_metadata_RDS-2013-0009.4.html). The following table shows a data dictionary of the independent variables I will be using for the analysis and learning. This list does not constitute all variables in the original data set but the variables I pan to use in my work. Variable descriptions were pasted from the original defined in the [metadata](https://www.fs.usda.gov/rds/archive/products/RDS-2013-0009.4/_metadata_RDS-2013-0009.4.html)
 
 | Variable Name    | Data Type | Description |
 |------------------|-----------|-------------|
@@ -38,11 +38,11 @@ Detailed metadata for the dataset can be found at - [Spatial wildfire occurrence
 | OWNER_CODE       | float     | Code for primary owner or entity responsible for managing the land at the point of origin of the fire at the time of the incident.                                                                                                                                       |
 | OWNER_DESCR      | str       | Name of primary owner or entity responsible for managing the land at the point of origin of the fire at the time of the incident.                                                                                                                                        |
 | STATE            | str       | Two-letter alphabetic code for the state in which the fire burned (or originated), based on the nominal designation in the fire report.                                                                                                                                  |
-| COUNTY           | str       | County, or equivalent, in which the fire burned (or originated), based on nominal designation in the fire report.                                                                                                                                                        |
+| COUNTY           | str       | County, or equivalent, in which the fire burned (or originated), based on the nominal designation in the fire report.                                                                                                                                                        |
 
 #### Limitations
-* The database was not curated from a single federal source. The records were aggregated from a disparate set of local agencies, reports, and other sources. Not only are there many different original sources but these sources vary over time. See the [FPA_FOD_Source_List](#target) for more information.
-* The dataset does not include elevation, a potential valuable potential indicator as oxygen levels, a key fuel for wildfires, vary by altitude.
+* The database was not curated from a single federal source. Records were aggregated from a long list of disparate of local agencies, reports, and other locations. Not only are there many sources but they vary over time. So many different inputs and methodologies could potentially lead to noisy data. See the [FPA_FOD_Source_List](#target) for more information.
+* The dataset does not include elevation which could have otherwise provided an insightful correlation between burn rate and oxygen abundance.
 * Latitude and longitudes are not records in decimal-degree format and will require conversion.
 
 #### License
@@ -50,7 +50,7 @@ Detailed metadata for the dataset can be found at - [Spatial wildfire occurrence
 > Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
 
 ### NOAA GSOD
-The data were gathered by the World Meteorologic Organziation (WMO) World WEather Watch Program and finally curated and released by NOAA. It contains over 9000 weather stations around the world but I'll obviously be filtering those to the US (and maybe Canada?). The goal of this dataset will be to engineer features of weekly, 3-day, and 1-day weather aggregations from weather stations just prior to the start of a fire. Performing these aggregations will be a heavy computation burden as there 1.8 million fires. The data records back as far as 1911 but I will exclude any outside the fire date range (< 1992).
+The data were gathered by the World Meteorologic Organization (WMO) World Weather Watch Program and finally curated and released by NOAA. It contains over 9000 weather stations around the world, but I will be filtering those to the US (and maybe Canada?). The goal of this dataset will be to engineer features of weekly, 3-day, and 1-day weather aggregations from stations leading up to the start of a fire. Performing these aggregations will be a heavy computation burden as there 1.8 million fires. The distance between each and each fire will need to be performed to find the closest. Without careful pruning, this could require up to 1.8million*29,706 distances being computed for this dataset alone. Recording timestamps go as far back as far as 1911, but I will exclude any outside the fire date range (1992 < fire < 2015).
 
 | Variable Name | Data Type | Type                                                                                            |
 |---------------|-----------|-------------------------------------------------------------------------------------------------|
@@ -70,10 +70,10 @@ The data were gathered by the World Meteorologic Organziation (WMO) World WEathe
 | MIN           | float     | Minimum temperature reported during the day in Fahrenheit to tenths                            |
 | PRCP          | float     | Total precipitation (rain and/or melted snow) reported during the day in inches and hundredths |
 | SNDP          | float     | Snow depth in inches to tenths--last report for the day if reported more than once             |
-| FRSHTT        | int       | Indicators (1=yes|0=no/not reported) indicates catostrophic level storm                         |
+| FRSHTT        | int       | Indicators (1=yes|0=no/not reported) indicates catastrophic level storm                         |
 
 #### Limitation
-A limitation noted by NOAA is up to a 2 day delay in reporting weather aggregations although this does not effect the current project.
+A limitation noted by NOAA is up to a 2-day delay in reporting weather aggregations although this does not affect the current project.
 
 #### License - IS THIS OKAY?
 NOAA and WMO provide the data for 'free and unrestricted use in research, education, and other non-commerical activites.'
@@ -83,7 +83,7 @@ NOAA and WMO provide the data for 'free and unrestricted use in research, educat
 828-271-4800.  Please email ncdc.info@noaa.gov if you have any other questions.
 
 ### ORNL DAAC
-This dataset contains a wealth of information that can be used for modeling. For the purposes of this project I will be using two tables that give us vegetation and soil content for a give latitude and longitude.
+This dataset contains a wealth of information for modeling. For this project I will be using two tables that give us vegetation and soil content for a given latitude and longitude.
 
 #### EMDI_ClassA_Soil_IGBP_81.csv
 | Variable Name | Data Type | Description                                          | Units           |
@@ -130,24 +130,25 @@ This dataset contains a wealth of information that can be used for modeling. For
 | COVR50KM      | int       | Dominant UMD land cover type based on 0.5-degree  grid cell centered on the site. | Encoded from above |
 
 #### Limitations
-The authors extensively discuss their sources, limitations, and methodologies in their [data description](https://daac.ornl.gov/NPP/guides/NPP_EMDI.html). Additionally, they separate their results into three different classes based on those data sources and limitations: A, B, and C. I will only be using the highest quality predictions their modeled provided in their ClassA datasets.
+The authors extensively discuss their sources, limitations, and methodologies in their [data description](https://daac.ornl.gov/NPP/guides/NPP_EMDI.html). Additionally, they separate their results into three different classes based on those data sources and limitations: A, B, and C. I will only be using the highest quality predictions, A.
 
 #### License - IS THIS OKAY?
 > To acknowledge the scientists who have created and shared data products, you should include a bibliographic citation to all data products that you use in your publications. Proper citations, including the authors, title, publisher, and DOI, will help others find and re-use the data.
 
-* Olson, R.J., J.M.O. Scurlock, S.D. Prince, D.L. Zheng, and K.R. Johnson (eds.). 2013. NPP Multi-Biome: NPP and Driver Data for Ecosystem Model-Data Intercomparison, R2. Data set. Available on-line [http://daac.ornl.gov] from Oak Ridge National Laboratory Distributed Active Archive Center, Oak Ridge, Tennessee, USA. doi:10.3334/ORNLDAAC/615
+* Olson, R.J., J.M.O. Scurlock, S.D. Prince, D.L. Zheng, and K.R. Johnson (eds.). 2013. NPP Multi-Biome: NPP and Driver Data for Ecosystem Model-Data Intercomparison, R2. Dataset. Available on-line [http://daac.ornl.gov] from Oak Ridge National Laboratory Distributed Active Archive Center, Oak Ridge, Tennessee, USA. doi:10.3334/ORNLDAAC/615
 
 ## Research Questions
 1. Which indicators are the most important for predicting the cause of a fire?
-2. Can I generate a reliable model to assist investigators in determing the cause of a fire?
+2. Can I generate a reliable model to assist investigators in determining the cause of a fire?
+3. I will make these more specific as I explore the data.
 
 ## Tools
 
 ### Software and Hardware
-The major application to process and clean the data will be Python and Jupyter Notebook with the Pandas library. The size of the dataset should fit in memory on my main desktop PC for cleaning and preprocessing (~32gb). But, I will switch to using an Amazon Web Services (AWS) EC2 instance if necessary. Computing distance metrics between weather/bio stations and fire locations will require massive parallel processing as the algorithm will be require a pruned O(n^2) time complexity. These tasks will be performed using a compute optimized EC2 instance with as many cores as I need. Modeling the data will require significantly more space. For this, I plan on using a Spark EMR cluster on AWS.
+The primary application to process and clean the data will be Python and Jupyter Notebook with the Pandas library. The size of the dataset should fit in memory throughout the cleaning and preprocessing tasks (~32gb). However, I will switch to using an Amazon Web Services (AWS) EC2 instance if necessary. Computing distance metrics between weather/bio stations and fire locations will require massive parallel processing as the algorithm will require a pruned O(n^2) time complexity. These tasks will be performed using a compute-optimized EC2 instance with as many cores as needed. Modeling the data will require a significantly higher space complexity than O(n) in order to fit multiple models simultaneously. For this, I plan on using a Spark EMR cluster splitting each learner to separate nodes.
 
 ### Algorithms
-Prior to any algorithms I plan on splitting the dataset into 2 parts. The first part will contain ~80% of the data and will be used for 10-Fold cross validation and parameter selection. The final 20% will be used to determine model generalizability and final accuracy. The feature space will be considerably large when the final combined data set is finished. As such, I will employ various dimensionality reduction techniques - Principle Component Analysis (PCA) and/or Least Absolute Shrinkage and Selection Operation (LASSO) to identify the features which provide the most predictive power. The primary goal is to predict the cause of a fire. This is a multiclass classification problem with 13 different predictions. The output space is not too large so my first attempt will be to take an all-pairs method with Logistic Regression and Gradient Boosting. If time does not permit I will fail over to One-vs-Rest using the same learners. And finally, I'd like to perform a simply Ridge Regression on area covered and/or fire duration to see which independent variables are most important in assessing risk factors.
+I will start by splitting the dataset into two parts. The first part will contain ~80% of the data and will be used in a 10-Fold cross-validation and grid-search parameter selection scheme. The final 20% will be used to determine model generalizability and final accuracy. The feature space will be considerably large with the final combined data set. As such, I will employ various dimensionality reduction techniques - Principle Component Analysis (PCA) and Least Absolute Shrinkage and Selection Operation (LASSO) to identify the features which provide the most predictive power. The primary goal is to predict the cause of a fire. Of additional note, this is a multiclass classification problem with 13 different predictions. The output space is not too large, so my first attempt will be to take an all-pairs method with Logistic Regression and Gradient Boosting. If time does not permit, I will fail over to One-vs-Rest using the same learners. 
 
 ## References
 * Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
