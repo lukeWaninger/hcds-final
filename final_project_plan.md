@@ -1,7 +1,10 @@
 # Final Project Plan - World Tarriffs
 Luke Waninger
+
 DATA 512 Human-Centered Data Science
+
 University of Washington, Fall 2018
+
 
 ## Introduction
 Wildfires have been a big topic in the recent news with devasting effects across the western coast of the United State. So far this year, we've had less burn than 2017 but the current fire in California is the largest in state history and still burns rapidly. Last year, we had almost 2 billion dollars of losses across the United States as a result of wildfire damage; the most in history. The risks of wildfires continue to climb as scientists discover linkage between the two. N. P. Gillett et. al. performed a comprehensive study on various effects showing an positive trend in wildfire burn area is strongly correlated with a positive trend in temperature and greenhouse gasses during the fire season in British Columbia. 
@@ -144,7 +147,7 @@ The authors extensively discuss their sources, limitations, and methodologies in
 The major application to process and clean the data will be Python and Jupyter Notebook with the Pandas library. The size of the dataset should fit in memory on my main desktop PC for cleaning and preprocessing (~32gb). But, I will switch to using an Amazon Web Services (AWS) EC2 instance if necessary. Computing distance metrics between weather/bio stations and fire locations will require massive parallel processing as the algorithm will be require a pruned O(n^2) time complexity. These tasks will be performed using a compute optimized EC2 instance with as many cores as I need. Modeling the data will require significantly more space. For this, I plan on using a Spark EMR cluster on AWS.
 
 ### Algorithms
-Prior to any algorithms I plan on splitting the dataset into 2 parts. The first part will contain ~80% of the data and will be used for 10-Fold cross validation and parameter selection. The final 20% will be used to determine model generalizability and final accuracy. The feature space will be considerably large when the final combined data set is finished. As such, I will employ various dimensionality reduction techniques - Principle Component Analysis (PCA) and/or Least Absolute Shrinkage and Selection Operation (LASSO) to identify the features which provide the most predictive power. The primary goal is to predict the cause of a fire. This is a multiclass classification problem with 13 different predictions. The output space is not too large so my first attempt will be to take an all-pairs method with Logistic Regression and Gradient Boosting.
+Prior to any algorithms I plan on splitting the dataset into 2 parts. The first part will contain ~80% of the data and will be used for 10-Fold cross validation and parameter selection. The final 20% will be used to determine model generalizability and final accuracy. The feature space will be considerably large when the final combined data set is finished. As such, I will employ various dimensionality reduction techniques - Principle Component Analysis (PCA) and/or Least Absolute Shrinkage and Selection Operation (LASSO) to identify the features which provide the most predictive power. The primary goal is to predict the cause of a fire. This is a multiclass classification problem with 13 different predictions. The output space is not too large so my first attempt will be to take an all-pairs method with Logistic Regression and Gradient Boosting. If time does not permit I will fail over to One-vs-Rest using the same learners. If time permits, I'd like to perform a Ridge Regression on area covered to see which independent variables effect the size and duration of a fire.
 
 ## References
 * Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
