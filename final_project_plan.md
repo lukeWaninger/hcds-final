@@ -1,4 +1,4 @@
-# Final Project Plan - World Tarriffs
+# Final Project Plan - Wildfire Cause Prediction and Analysis
 Luke Waninger
 
 DATA 512 Human-Centered Data Science
