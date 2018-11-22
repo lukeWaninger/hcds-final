@@ -81,9 +81,10 @@ NOAA and WMO provide the data for 'free and unrestricted use in research, educat
 
 > Those countries' data summaries and products which are available here are intended for free and unrestricted use in research, education, and other non-commercial activities.  However, for non-U.S. locations' data, the data or any derived product shall not be provided to other users or be used for the re-export of commercial services.  To determine the off-line availability of any country's data, please contact --ncdc.orders@noaa.gov,
 828-271-4800.  Please email ncdc.info@noaa.gov if you have any other questions.
+[Surface Summary of Day, GSOD](http://datafedwiki.wustl.edu/index.php/2010-01-30:_Surface_Summary_of_Day%2C_GSOD)
 
 ### ORNL DAAC
-This dataset contains a wealth of information for modeling. For this project, I will be using two tables that give us vegetation and soil content for a given latitude and longitude.
+This dataset contains a wealth of information for modeling. For this project, I will be using two tables that give us vegetation and soil content for a given latitude and longitude. Descriptions were pasted from the original metadata descriptions and can be found at [ORNL DAAC](https://daac.ornl.gov/NPP/guides/NPP_EMDI.html).
 
 #### EMDI_ClassA_Soil_IGBP_81.csv
 | Variable Name | Data Type | Description                                          | Units           |
@@ -136,6 +137,7 @@ The authors extensively discuss their sources, limitations, and methodologies in
 > To acknowledge the scientists who have created and shared data products, you should include a bibliographic citation to all data products that you use in your publications. Proper citations, including the authors, title, publisher, and DOI, will help others find and re-use the data.
 
 * Olson, R.J., J.M.O. Scurlock, S.D. Prince, D.L. Zheng, and K.R. Johnson (eds.). 2013. NPP Multi-Biome: NPP and Driver Data for Ecosystem Model-Data Intercomparison, R2. Dataset. Available on-line [http://daac.ornl.gov] from Oak Ridge National Laboratory Distributed Active Archive Center, Oak Ridge, Tennessee, USA. doi:10.3334/ORNLDAAC/615
+[ORNL DAAC](https://daac.ornl.gov/about/)
 
 ## Research Questions
 1. Which indicators are the most important for predicting the cause of a fire?
@@ -168,4 +170,5 @@ I will start by splitting the dataset into two parts. The first part will contai
 * Olson, R.J., J.M.O. Scurlock, S.D. Prince, D.L. Zheng, and K.R. Johnson (eds.). 2013. NPP Multi-Biome: NPP and Driver Data for Ecosystem Model-Data Intercomparison, R2. Data set. Available on-line [http://daac.ornl.gov] from Oak Ridge National Laboratory Distributed Active Archive Center, Oak Ridge, Tennessee, USA. doi:10.3334/ORNLDAAC/615
 
 * 2010-01-30: Surface Summary of Day, GSOD - Datafedwiki. http://datafedwiki.wustl.edu/index.php/2010-01-30:_Surface_Summary_of_Day%2C_GSOD
+
 * About Us - ORNL DAAC. https://daac.ornl.gov/about/
