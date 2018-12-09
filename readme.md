@@ -1,4 +1,4 @@
-# Predicting the Source of Wildfires
+# Predicting the Source of Wildfires and Further Analysis
 Luke Waninger
 
 DATA 512 Final Project
