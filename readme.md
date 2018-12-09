@@ -4,7 +4,7 @@ DATA 512 Final Project
 University of Washington, Fall 2018  
 __[The Live Notebook](https://notebooks.azure.com/lukewaninger/projects/wildfires)__
 
-## Introduction
+## Abstract
 Wildfires have been a big topic in the recent news with devasting effects across the western coast of the United States. So far this year, we have had less burn than 2017, but the current fire in California is the largest in state history and still burns rapidly. Last year, we had almost 2 billion dollars of losses across the United States as a result of wildfire damage which has been the highest in history [[6](https://www.iii.org/fact-statistic/facts-statistics-wildfires)]. Risks of wildfires continue to climb as scientists discover alarming links between rising greenhouse gasses, temperature, and wildfire severity. N. P. Gillett et al. performed a comprehensive study on the relationship between the two and concluded with overwhelming confidence that a positive trend exists between them [[2](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020876)]. Rising greenhouse gasses could be playing a significant role in the prevalence and severity of forest fires. The visualization below shows a scatter plot of wildfires recorded in the continental US from 1991-2015. Each point is a fire (I'll go into the colors later in the notebook). This picture shows the the magnitude and prevalance of the problem here at home and gives me further creedance to study the problem.
 
 ![Map of Continental US Wildfires](https://github.com/lukeWaninger/hcds-final/blob/master/images/all_fires_map.JPG "Map of Continental US Wildfires")
@@ -93,6 +93,19 @@ An additional limitation is the bias in weather station location placement. Roug
 ![Spatial Bias](https://github.com/lukeWaninger/hcds-final/blob/master/images/spatial_bias.JPG "Spatial Bias")
 
 This is an important implication for local authorities that may lie within the sparse regions shown above. 
+
+## Conclusions
+####  What are the most important indicators to consider when determining the cause of a wildfire?
+The answer to this question is somewhat anticlimatic. I expected to learn a great deal from joining the vegetation and soil content data. I'm dissapointed that we were unable to take advantage of the data. In the future, I plan on using the Google Earth Engine for any environmental related products that I produce. The engine demanded too steep of a learning curve for me to utilize in this project but I look forward to learning it. Despite the setback we still gathered some useful information. 
+
+As it turns out, weather doesn't correlate very well to the cause of a fire. It happens that more lightning occurs with both drier climates and tends to start fires more easily. None of that should surprise anyone. 
+
+Some interesting seasonality showed itself through the second of year feature. I did not expect arsonists to work more in the spring time nor children to enjoy burning in the Spring.
+
+The number of nearby fires also turned out to be a good indicator for predicting the cause.
+
+#### Can a reliable model be built to assist investigators in determining the cause of a wildfire?
+No, not really. With the features we have right now I wouldn't say that our multi-class classification model was very reliable for predicting the one of the 13 reasons. Predicting only arson caused fires was decently successful with 87% accuracy for cross-validation.
 
 ## References
 [1] Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
