@@ -1,9 +1,7 @@
 # Predicting the Source of Wildfires and Further Analysis
-Luke Waninger
-
-DATA 512 Final Project
-
-University of Washington, Fall 2018
+Luke Waninger  
+DATA 512 Final Project  
+University of Washington, Fall 2018  
 
 ## Introduction
 Wildfires have been a big topic in the recent news with devasting effects across the western coast of the United States. So far this year, we have had less burn than 2017, but the current fire in California is the largest in state history and still burns rapidly. Last year, we had almost 2 billion dollars of losses across the United States as a result of wildfire damage which has been the highest in history [[6](https://www.iii.org/fact-statistic/facts-statistics-wildfires)]. Risks of wildfires continue to climb as scientists discover alarming links between rising greenhouse gasses, temperature, and wildfire severity. N. P. Gillett et al. performed a comprehensive study on the relationship between the two and concluded with overwhelming confidence that a positive trend exists between them [[2](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020876)]. Rising greenhouse gasses could be playing a significant role in the prevalence and severity of forest fires. The visualization below shows a scatter plot of wildfires recorded in the continental US from 1991-2015. Each point is a fire (I'll go into the colors later in the notebook). This picture shows the the magnitude and prevalance of the problem here at home and gives me further creedance to study the problem.
