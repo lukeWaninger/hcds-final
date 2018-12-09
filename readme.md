@@ -8,7 +8,7 @@ University of Washington, Fall 2018
 ## Introduction
 Wildfires have been a big topic in the recent news with devasting effects across the western coast of the United States. So far this year, we have had less burn than 2017, but the current fire in California is the largest in state history and still burns rapidly. Last year, we had almost 2 billion dollars of losses across the United States as a result of wildfire damage which has been the highest in history [[6](https://www.iii.org/fact-statistic/facts-statistics-wildfires)]. Risks of wildfires continue to climb as scientists discover alarming links between rising greenhouse gasses, temperature, and wildfire severity. N. P. Gillett et al. performed a comprehensive study on the relationship between the two and concluded with overwhelming confidence that a positive trend exists between them [[2](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020876)]. Rising greenhouse gasses could be playing a significant role in the prevalence and severity of forest fires. The visualization below shows a scatter plot of wildfires recorded in the continental US from 1991-2015. Each point is a fire (I'll go into the colors later in the notebook). This picture shows the the magnitude and prevalance of the problem here at home and gives me further creedance to study the problem.
 
-![US Continental Map of Wildfires](https://github.com/lukeWaninger/hcds-final/blob/master/images/all_fires_map.JPG "[US Continental Map of Wildfires")
+![Map of Continental US Wildfires](https://github.com/lukeWaninger/hcds-final/blob/master/images/all_fires_map.JPG "Map of Continental US Wildfires")
 
 Key to understanding the overall problem is the double-edged sword forests play in climate change; they are both a cause and effect. The wildfires both increase atmospheric greenhouse gasses and destroy the integral vegetation to the planet's carbon cycle [[3](https://www.iucn.org/resources/issues-briefs/forests-and-climate-change), [7](https://daac.ornl.gov/NPP/guides/NPP_EMDI.html), [8](http://daac.ornl.gov/)]. The Paris Agreement has specifically mentioned the importance of this and insists that countries protect against deforestation [[4](https://unfccc.int/process-and-meetings/the-paris-agreement/the-paris-agreement)]. Not only is the world pushing to keep the forests we have but here at home, we have begun to employ them as significant combatants in the fight against climate change. California has led the way with their proposed carbon plan. It proposes methods to reshape parts of their existing ecosystem to make their forests even more efficient at removing carbon [[5](http://www.unenvironment.org/news-and-stories/story/forests-provide-critical-short-term-solution-climate-change)]. Stopping deforestation would significantly promote the UNs progress towards reaching goals outlined in the Paris Agreement.
 
@@ -33,7 +33,7 @@ An additional limitation is the bias in weather station location placement. Roug
 
 ![Spatial Bias](https://github.com/lukeWaninger/hcds-final/blob/master/images/spatial_bias.JPG "Spatial Bias")
 
-This is an important implication for local authorities that may lie within the sparse regions shown above.
+This is an important implication for local authorities that may lie within the sparse regions shown above. 
 
 ## References
 [1] Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
