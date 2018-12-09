@@ -18,12 +18,72 @@ However, this will not work if the forests continue in the same destructive cycl
 * Can a reliable model be built to assist investigators in determining the cause of a wildfire?
 
 ####  Reproducibility
-This notebook is intended to be completely reproducible. However, the starting datasets are much too large to be hosted on GitHub. I provide a small, randomly selected sample with the repository to show the dataset cleaning and generation process. The full datasets can be downloaded by running the following cell. Running it will overwrite the sample provided. I highly advise not attempting to run the full dataset. Generating the weather aggregations across the entire fires dataset can take a considerable amount of time. With 12 cores running at 4ghz and a consistent 95% CPU load, it took my machine nearly 27 hours to compute. The analysis portion of the notebook is also computationally expensive. The cross-validation approach implemented will consume all available resources and severely limit any other concurrent processes for several hours. The final tuned models can be computed directly via the parameters found during my tuning process.
+This notebook is intended to be completely reproducible. However, the starting datasets are much too large to be hosted on GitHub. I provide a small, randomly selected sample with the repository to show the dataset cleaning and generation process. The full notebook and data can be ran, cloned, or downloaded through [Azure Notebooks](https://notebooks.azure.com/lukewaninger/projects/wildfires). If you run this notebook on your own machine please be aware that the notebook requires quite a bit of resources. With 12 cores running at 4ghz and a consistent 95% CPU load, it took my machine nearly 27 hours to compute. The analysis portion of the notebook is also computationally expensive. The cross-validation approach implemented will consume all available resources and severely limit any other concurrent processes for several hours. The final tuned models can be computed directly via the parameters found during my tuning process.
 
-It is also possible to view and clone the notebook and full datasets on [Azure Notebooks](https://notebooks.azure.com/lukewaninger/projects/wildfires).
+The original data format of the GSOD data makes creating samples a bit challenging. To do this, I ran an additional notebook with the following code. It opens each subdir of the extracted GSOD file and randomly selects and removes half the files. I ran this iteratively until the resulting file size was within the Github file size limit of 100mb.
+
+```Python
+import os
+
+# walk the extracted directory
+for dirpath, dirnames, filenames in os.walk('gsod_all_years'):
+    
+    # process each year
+    for sdir in dirnames:
+        # randomly select some station files        
+        sfiles = os.listdir(os.path.join(dirpath, sdir))
+        to_remove = np.random.choice(sfiles, int(len(sfiles)/2))
+        
+        # remove them
+        for f in to_remove:
+            try:
+                tr = os.path.join('.', dirpath, sdir, f)
+                os.remove(tr)
+            except FileNotFoundError:
+                pass
+```
+
+I repacked the sample to be in the same format as the original dataset using WinZip. To sample from the completed fires dataset I used the following code snippet.
+
+```Python
+import pandas as pd
+
+# read
+df = pd.read_csv('fires_complete.csv')
+
+# sample
+df = df.sample(frac=.85)
+
+# write back
+df.to_csv('fires_complete.csv', index=None)
+```
+
+And finally, to sample the fires data I first dropped all other tables besides Fires. Next, I ran the following snippet iteratively until the sqlite file was under 100mb.
+
+```Python
+import sqlite3
+
+# connect
+path = os.path.join('FPA_FOD_20170508.sqlite')
+conn = sqlite3.connect(path)
+
+# randomly delete some fires
+conn.execute("""
+  DELETE FROM Fires
+  WHERE fod_id IN (
+    SELECT fod_id
+    FROM Fires 
+    ORDER BY RANDOM() 
+    LIMIT 100000
+  );
+""")
+
+# compress the file
+conn.execute('VACUUM;')
+```
 
 #### A Note on Visualizations
-I use [Plotly](https://plot.ly/python/) extensively throughout this notebook. The majority of the visualizations are interactive and require Javascript to be running in the background. The Github previewer does not run the necessary Javascript for rendering which turns them into empty grey squares. Due to this restriction, I've published the notebook to Azure Notebooks where you can view and or rerun as necessary. You may also clone or download the notebook directly from Azure. Cloning from there gives the added benefit of not needing to download the data in the following cell. But running in Azure poses additional limitations for Plotly. The notebook needs to be running in Trusted mode for the Javascript to execute as needed [11](https://media.readthedocs.org/pdf/jupyter-notebook/stable/jupyter-notebook.pdf).
+I use [Plotly](https://plot.ly/python/) extensively throughout this notebook. They are interactive and require Javascript to be running in the background. The Github previewer does not run the necessary Javascript for rendering making them just empty grey squares. Due to this restriction, I've published the notebook to Azure Notebooks where you can view and or rerun as necessary. You may also clone or download the notebook directly from Azure. Cloning from there gives the added benefit of not needing to download the data in the following cell. But running in Azure poses additional limitations for Plotly. The notebook needs to be running in Trusted mode for the Javascript to execute as needed [11](https://media.readthedocs.org/pdf/jupyter-notebook/stable/jupyter-notebook.pdf).
 
 ## Limitations
 An important limitation to mention is the nature of the wildfires dataset. It was aggregated over 25 years of varying federal and local agencies. This becomes evident when taking a look at the scatter plot shown above. Kentucky seemed to place heavy importance on reporting campfire caused incidents; noticeable by the distinct outline around the state. Other states of interest are Louisiana and New York. The majority of Louisiana fires had missing or undefined classification labels. New York stands out for for the extreme level of reporting. In stark contrast, Virginia is clearly depicted against the dense reporting of bordering states.
