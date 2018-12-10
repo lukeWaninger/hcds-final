@@ -92,7 +92,7 @@ conn.execute('VACUUM;')
 </details>
 
 #### A Note on Visualizations
-I use [Plotly](https://plot.ly/python/) extensively throughout this notebook. They are interactive and require Javascript to be running in the background. The Github previewer does not run the necessary Javascript for rendering making them just empty grey squares. Due to this restriction, I've published the notebook to Azure Notebooks where you can view and or rerun as necessary. You may also clone or download the notebook directly from Azure. Cloning from there gives the added benefit of not needing to download the data in the following cell. But running in Azure poses additional limitations for Plotly. The notebook needs to be running in Trusted mode for the Javascript to execute as needed [11](https://media.readthedocs.org/pdf/jupyter-notebook/stable/jupyter-notebook.pdf).
+I use [Plotly](https://plot.ly/python/) extensively throughout this notebook. They are interactive and require Javascript to be running in the background. The Github previewer does not run the necessary Javascript for rendering making them just empty grey squares.
 
 ## Limitations
 An important limitation to mention is the nature of the wildfires dataset. It was aggregated over 25 years of varying federal and local agencies. This becomes evident when taking a look at the scatter plot shown above. Kentucky seemed to place heavy importance on reporting campfire caused incidents; noticeable by the distinct outline around the state. Other states of interest are Louisiana and New York. The majority of Louisiana fires had missing or undefined classification labels. New York stands out for for the extreme level of reporting. In stark contrast, Virginia is clearly depicted against the dense reporting of bordering states.
@@ -146,5 +146,3 @@ I have no doubt that we can obtain better performance with added vegetation data
 [9] 2010-01-30: Surface Summary of Day, GSOD - Datafedwiki. https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516
 
 [10] About Us - ORNL DAAC. https://daac.ornl.gov/about/
-
-[11] Jupyter Notebook Documentation. Release 5.7.2, Section 1.8 Trusting Notebooks. https://media.readthedocs.org/pdf/jupyter-notebook/stable/jupyter-notebook.pdf
