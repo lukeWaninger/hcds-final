@@ -102,6 +102,8 @@ As it turns out, weather doesn't correlate very well to the cause of a fire. It 
 
 Some interesting seasonality showed itself through the second of year feature. I did not expect arsonists to work more in the spring time nor children to enjoy burning in the Spring.
 
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~waninger/28.embed"></iframe>
+
 The number of nearby fires also turned out to be a good indicator for predicting the cause.
 
 #### Can a reliable model be built to assist investigators in determining the cause of a wildfire?
