@@ -103,6 +103,21 @@ An additional limitation is the bias in weather station location placement. Roug
 
 This is an important implication for local authorities that may lie within the sparse regions shown above. 
 
+## Data Licensing
+#### Wild Fires
+> These data were collected using funding from the U.S. Government and can be used without additional permissions or fees. If you use these data in a publication, presentation, or other research product, please use the following citation:
+> Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
+
+#### NOAA GSOD
+> The data summaries provided here are based on data exchanged under the World Meteorological Organization (WMO) World Weather Watch Program according to WMO Resolution 40 (Cg-XII).  This allows WMO member countries to place restrictions on the use or re-export of their data for commercial purposes outside of the receiving country.  Data for selected countries may, at times, not be available through this system.   
+
+> Those countries' data summaries and products which are available here are intended for free and unrestricted use in research, education, and other non-commercial activities.  However, for non-U.S. locations' data, the data or any derived product shall not be provided to other users or be used for the re-export of commercial services.  To determine the off-line availability of any country's data, please contact --ncdc.orders@noaa.gov,
+828-271-4800.  Please email ncdc.info@noaa.gov if you have any other questions.
+_[Surface Summary of Day, GSOD](http://datafedwiki.wustl.edu/index.php/2010-01-30:_Surface_Summary_of_Day%2C_GSOD)_
+
+#### ORNL DAAC
+* Olson, R.J., J.M.O. Scurlock, S.D. Prince, D.L. Zheng, and K.R. Johnson (eds.). 2013. NPP Multi-Biome: NPP and Driver Data for Ecosystem Model-Data Intercomparison, R2. Dataset. Available on-line [http://daac.ornl.gov] from Oak Ridge National Laboratory Distributed Active Archive Center, Oak Ridge, Tennessee, USA. doi:10.3334/ORNLDAAC/615
+
 ## Conclusions
 ####  What are the most important indicators to consider when determining the cause of a wildfire?
 Some interesting features turned out to be the most important for determining the cause of a fire.  
