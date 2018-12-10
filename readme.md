@@ -22,7 +22,8 @@ This notebook is intended to be completely reproducible. However, the starting d
 
 The original data format of the GSOD data makes creating samples a bit challenging. To do this, I ran an additional notebook with the following code. It opens each subdir of the extracted GSOD file and randomly selects and removes half the files. I ran this iteratively until the resulting file size was within the Github file size limit of 100mb.
 
-<details><summary>expand</summary>
+<details><summary>expand</summary>  
+
 ```Python
 import os
 
@@ -42,9 +43,9 @@ for dirpath, dirnames, filenames in os.walk('gsod_all_years'):
                 os.remove(tr)
             except FileNotFoundError:
                 pass
-```  
-</details>
-
+```    
+</details>  
+  
 I repacked the sample to be in the same format as the original dataset using WinZip. To sample from the completed fires dataset I used the following code snippet.
 
 <details><summary>expand</summary>  
@@ -61,10 +62,10 @@ df = df.sample(frac=.85)
 # write back
 df.to_csv('fires_complete.csv', index=None)
 ```
-</details>
-
-And finally, to sample the fires data I first dropped all other tables besides Fires. Next, I ran the following snippet iteratively until the sqlite file was under 100mb.
-
+</details>  
+  
+And finally, to sample the fires data I first dropped all other tables besides Fires. Next, I ran the following snippet iteratively until the sqlite file was under 100mb.  
+  
 <details><summary>expand</summary>  
 
 ```Python
