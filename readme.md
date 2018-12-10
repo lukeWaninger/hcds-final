@@ -47,7 +47,8 @@ for dirpath, dirnames, filenames in os.walk('gsod_all_years'):
 
 I repacked the sample to be in the same format as the original dataset using WinZip. To sample from the completed fires dataset I used the following code snippet.
 
-<details><summary>expand</summary>
+<details><summary>expand</summary>  
+  
 ```Python
 import pandas as pd
 
@@ -64,7 +65,8 @@ df.to_csv('fires_complete.csv', index=None)
 
 And finally, to sample the fires data I first dropped all other tables besides Fires. Next, I ran the following snippet iteratively until the sqlite file was under 100mb.
 
-<details><summary>expand</summary>
+<details><summary>expand</summary>  
+
 ```Python
 import sqlite3
 
@@ -85,7 +87,7 @@ conn.execute("""
 
 # compress the file
 conn.execute('VACUUM;')
-```
+```  
 </details>
 
 #### A Note on Visualizations
