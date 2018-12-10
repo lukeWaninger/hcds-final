@@ -122,7 +122,7 @@ I expected to learn a great deal from joining the vegetation and soil content da
 #### Can a reliable model be built to assist investigators in determining the cause of a wildfire?
 With the features we have right now I wouldn't say that our multi-class classification model was very reliable for predicting one of the 13 reasons. Predicting arson caused fires was decently successful with 87% area under the curve (AUC) for cross-validation.
 
-![ROC](https://github.com/lukeWaninger/hcds-final/blob/master/images/ROC.png =250x)
+<img src="https://github.com/lukeWaninger/hcds-final/blob/master/images/ROC.png" alt="ROC" width="200"/>
 
 I have no doubt that we can obtain better performance with added vegetation data. There many areas of the data that have yet to be explored.
 
