@@ -22,6 +22,7 @@ This notebook is intended to be completely reproducible. However, the starting d
 
 The original data format of the GSOD data makes creating samples a bit challenging. To do this, I ran an additional notebook with the following code. It opens each subdir of the extracted GSOD file and randomly selects and removes half the files. I ran this iteratively until the resulting file size was within the Github file size limit of 100mb.
 
+<details><summary>expand</summary>
 ```Python
 import os
 
@@ -41,10 +42,12 @@ for dirpath, dirnames, filenames in os.walk('gsod_all_years'):
                 os.remove(tr)
             except FileNotFoundError:
                 pass
-```
+```  
+</details>
 
 I repacked the sample to be in the same format as the original dataset using WinZip. To sample from the completed fires dataset I used the following code snippet.
 
+<details><summary>expand</summary>
 ```Python
 import pandas as pd
 
@@ -57,9 +60,11 @@ df = df.sample(frac=.85)
 # write back
 df.to_csv('fires_complete.csv', index=None)
 ```
+</details>
 
 And finally, to sample the fires data I first dropped all other tables besides Fires. Next, I ran the following snippet iteratively until the sqlite file was under 100mb.
 
+<details><summary>expand</summary>
 ```Python
 import sqlite3
 
@@ -81,6 +86,7 @@ conn.execute("""
 # compress the file
 conn.execute('VACUUM;')
 ```
+</details>
 
 #### A Note on Visualizations
 I use [Plotly](https://plot.ly/python/) extensively throughout this notebook. They are interactive and require Javascript to be running in the background. The Github previewer does not run the necessary Javascript for rendering making them just empty grey squares. Due to this restriction, I've published the notebook to Azure Notebooks where you can view and or rerun as necessary. You may also clone or download the notebook directly from Azure. Cloning from there gives the added benefit of not needing to download the data in the following cell. But running in Azure poses additional limitations for Plotly. The notebook needs to be running in Trusted mode for the Javascript to execute as needed [11](https://media.readthedocs.org/pdf/jupyter-notebook/stable/jupyter-notebook.pdf).
