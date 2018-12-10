@@ -96,18 +96,26 @@ This is an important implication for local authorities that may lie within the s
 
 ## Conclusions
 ####  What are the most important indicators to consider when determining the cause of a wildfire?
-The answer to this question is somewhat anticlimatic. I expected to learn a great deal from joining the vegetation and soil content data. I'm dissapointed that we were unable to take advantage of the data. In the future, I plan on using the Google Earth Engine for any environmental related products that I produce. The engine demanded too steep of a learning curve for me to utilize in this project but I look forward to learning it. Despite the setback we still gathered some useful information. 
+Some interesting features turned out to be the most important for determining the cause of a fire.  
+
+![Feature Importance](https://github.com/lukeWaninger/hcds-final/blob/master/images/Rank%20of%20Feature%20Importance.png)
+I expected the month of the year to have an impact on the occurences of wildfires but not necessarily the cause. Arsonists and children, for example, have a clear season of burning it seems.
+
+_[See the interactive plot](https://plot.ly/~waninger/30/)_  
+![The Seasonality of Wildfires by Cause](https://github.com/lukeWaninger/hcds-final/blob/master/images/The%20Seasonality%20of%20Wildfire%20Causes.png)
 
 As it turns out, weather doesn't correlate very well to the cause of a fire. It happens that more lightning occurs with both drier climates and tends to start fires more easily. None of that should surprise anyone. 
 
-Some interesting seasonality showed itself through the second of year feature. I did not expect arsonists to work more in the spring time nor children to enjoy burning in the Spring.
+Longitude had a surprisingly high impact as well. This is evident from the US map above. Again, arsonists are standing out in the data. We can see they tend to burn more heavily in the South Eastern states and tend to shy away from federally owned lands.
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~waninger/28.embed"></iframe>
-
-The number of nearby fires also turned out to be a good indicator for predicting the cause.
+I expected to learn a great deal from joining the vegetation and soil content data. I'm disappointed that we were unable to take advantage of the information. In the future, I plan on using the Google Earth Engine for any environmental related products that I produce. The engine demanded too steep of a learning curve for me to utilize in this project but I look forward to learning it. Despite the setback we still gathered some useful information. 
 
 #### Can a reliable model be built to assist investigators in determining the cause of a wildfire?
-No, not really. With the features we have right now I wouldn't say that our multi-class classification model was very reliable for predicting the one of the 13 reasons. Predicting only arson caused fires was decently successful with 87% accuracy for cross-validation.
+With the features we have right now I wouldn't say that our multi-class classification model was very reliable for predicting one of the 13 reasons. Predicting arson caused fires was decently successful with 87% area under the curve (AUC) for cross-validation.
+
+![ROC](https://github.com/lukeWaninger/hcds-final/blob/master/images/ROC.png)
+
+I have no doubt that we can obtain better performance with added vegetation data. There many areas of the data that have yet to be explored.
 
 ## References
 [1] Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
