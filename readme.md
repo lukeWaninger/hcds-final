@@ -134,11 +134,11 @@ Longitude had a surprisingly high impact as well. This is evident from the US ma
 I expected to learn a great deal from joining the vegetation and soil content data. I'm disappointed that we were unable to take advantage of the information. In the future, I plan on using the Google Earth Engine for any environmental related products that I produce. The engine demanded too steep of a learning curve for me to utilize in this project but I look forward to learning it. Despite the setback we still gathered some useful information. 
 
 #### Can a reliable model be built to assist investigators in determining the cause of a wildfire?
-With the features we have right now I wouldn't say that our multi-class classification model was very reliable for predicting one of the 13 reasons. Predicting arson caused fires was decently successful with 87% area under the curve (AUC) for cross-validation.
+With the features we have right now I wouldn't say that our multi-class classification model wasn't very reliable for predicting one of the 13 reasons. Predicting arson caused fires was decently successful with 87% area under the curve (AUC) for cross-validation.
 
 <img src="https://github.com/lukeWaninger/hcds-final/blob/master/images/ROC.png" alt="ROC" width="500"/>
 
-I have no doubt that we can obtain better performance with added vegetation data. There many areas of the data that have yet to be explored.
+I have no doubt that we can obtain better performance with added vegetation data. There are many areas of the data that have yet to be explored.
 
 ## References
 [1] Short, Karen C. 2017. Spatial wildfire occurrence data for the United States, 1992-2015 [FPA_FOD_20170508]. 4th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.4
