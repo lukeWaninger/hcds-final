@@ -122,7 +122,7 @@ _[Surface Summary of Day, GSOD](http://datafedwiki.wustl.edu/index.php/2010-01-3
 Some interesting features turned out to be the most important for determining the cause of a fire.  
 
 ![Feature Importance](https://github.com/lukeWaninger/hcds-final/blob/master/images/Rank%20of%20Feature%20Importance.png)
-I expected the month of the year to have an impact on the occurences of wildfires but not necessarily the cause. Arsonists and children, for example, have a clear season of burning it seems.
+I expected the month of the year to have a correlation on the occurences of wildfires but not to such an extent as it shows in this ranking. Arsonists and children, for example, have a clear season of burning it seems.
 
 _[See the interactive plot](https://plot.ly/~waninger/30/)_  
 ![The Seasonality of Wildfires by Cause](https://github.com/lukeWaninger/hcds-final/blob/master/images/The%20Seasonality%20of%20Wildfire%20Causes.png)
